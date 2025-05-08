@@ -44,5 +44,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/frontend-actions-deploy/actionsfrontend
+          tags: ghcr.io/nikkikorzh/frontend-action-deploy
 
