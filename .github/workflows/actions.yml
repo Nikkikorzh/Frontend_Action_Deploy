@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Deployment
 
 on:
   push:
@@ -11,9 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write 
-      packages: write  
-      actions: write   
+      contents: write
+      packages: write
+      actions: write
 
     steps:
       - name: Checkout repository
@@ -32,7 +32,7 @@ jobs:
           pnpm install
           pnpm run build
 
-      - name: Log in to GitHub Container Registry
+      - name: Login GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -44,5 +44,20 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/nikkikorzh/frontend-action-deploy
+          tags: ghcr.io/nikkikorzh/frontend-action-deploy:latest
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: my-web-app-lab9
+          images: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
