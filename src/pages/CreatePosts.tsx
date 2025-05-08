@@ -17,7 +17,7 @@ export default function PostsNew() {
     const [author, setAuthor] = useState(0);
     const navigate = useNavigate();
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		try {
 			await createPost({
@@ -33,7 +33,7 @@ export default function PostsNew() {
 			});
 
 		} catch (error) {
-			if (error.response?.status === 401 || error.response?.status === 403) {
+			if (error instanceof Error) {
 				alert('Доступ заборонений. Увійдіть у систему.');
 			} else {
 				alert('Сталася помилка. Спробуйте ще раз.');

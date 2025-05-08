@@ -1,15 +1,7 @@
-import { Route } from "../routes/login";
 import api from "../api/axios.ts";
 import { useState } from "react";
-import axios from "axios";
 import {useNavigate} from "@tanstack/react-router";
 
-
-interface User {
-	id: number;
-	email : string;
-	password: string;
-}
 function userLogin(data: { email: string; password:string }) {
 	return api.post("/auth/login", data).then((res) => {
 		const token = res.data.data;
@@ -24,12 +16,14 @@ export default function Login() {
 	const [userEmail, setEmail] = useState('')
 	const [userPassword, setPassword] = useState('');
 	const navigate = useNavigate();
-	const handleSubmit = (e)  => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>)  => {
 		e.preventDefault();
 		userLogin({ email: userEmail, password: userPassword });
 		navigate({
 			to: '/posts',
-			state: { refresh: true } as any
+			search: {
+				refresh: 'true',
+			},
 		});
 	}
 	return (
@@ -38,7 +32,7 @@ export default function Login() {
 			margin:'50px', border:'2px solid green', }}>
 				<div style = {{ padding: '1rem', justifyContent:'center', alignItems:'center' }}>
 						<h3 style={{fontWeight:'bold'}}>Insert your login and password!</h3>
-						<div style = {{marginTop:'1rem', marginBottom:'1rem', marginTop:'20px'}}>
+						<div style = {{marginTop:'1rem', marginBottom:'1rem'}}>
 							<label >Email</label>
 							<input required
 										 placeholder="Email"

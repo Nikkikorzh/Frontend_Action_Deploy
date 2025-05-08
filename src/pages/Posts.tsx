@@ -1,7 +1,7 @@
-import { Outlet, Link, useRouter, useLocation } from "@tanstack/react-router";
+import { Outlet, Link,  useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from 'react';
 import api from "../api/axios.ts";
-import { post } from "axios";
+
 
 
 interface Post {
@@ -37,26 +37,28 @@ export default function Posts() {
 			try {
 				await deletePost(id);
 				setPosts((previousPosts) => previousPosts.filter((post) => post.id !== id));
-			} catch (error) {
-				if (error.response?.status === 401 || error.response?.status === 403) {
+			} catch (error: unknown) {
+				const err = error as { response?: { status?: number } };
+				if (err.response?.status === 401 || err.response?.status === 403) {
 					alert('Доступ заборонений. Увійдіть у систему.');
 				} else {
 					alert('Сталася помилка. Спробуйте ще раз.');
 				}
 			}
 
+
 	};
 
-	const fetchData = async () => {
-		try {
-			console.log("Fetching posts...");
-			const data = await getAllPosts();
-			console.log("Fetched posts:", data);
-			setPosts(data);
-		} catch (error) {
-			console.error("Failed to fetch posts:", error);
-		}
-	};
+	// const fetchData = async () => {
+	// 	try {
+	// 		console.log("Fetching posts...");
+	// 		const data = await getAllPosts();
+	// 		console.log("Fetched posts:", data);
+	// 		setPosts(data);
+	// 	} catch (error) {
+	// 		console.error("Failed to fetch posts:", error);
+	// 	}
+	// };
 
 
 	useEffect(() => {

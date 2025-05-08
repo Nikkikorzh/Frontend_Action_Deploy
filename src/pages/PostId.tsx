@@ -1,8 +1,7 @@
-import {Link, Outlet, useNavigate, useParams} from "@tanstack/react-router";
+import {Link, Outlet, useNavigate} from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Route } from "../routes/posts.$id";
 import api from '../api/axios.ts';
-import {navigate} from "@storybook/addon-links";
 
 async function getPostById(id: number) {
 		const response = await api.get(`/posts/${id}`);
