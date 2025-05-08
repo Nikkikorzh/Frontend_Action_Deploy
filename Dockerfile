@@ -1,9 +1,7 @@
 FROM nginx:stable-alpine
 
-WORKDIR /app
+RUN rm -rf /usr/share/nginx/html/*
 
-COPY . .
-
-RUN cp -r /app/dist/* /usr/share/nginx/html
+COPY dist/ /usr/share/nginx/html/
 
 EXPOSE 80
