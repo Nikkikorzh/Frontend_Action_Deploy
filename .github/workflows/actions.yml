@@ -60,4 +60,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: my-web-app-lab9
-          images: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+          images: ghcr.io/nikkikorzh/frontend-action-deploy:latest
+
