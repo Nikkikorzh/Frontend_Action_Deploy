@@ -1,10 +1,9 @@
 FROM nginx:stable-alpine
 
+WORKDIR /app
 
-COPY ./dist /usr/share/nginx/html
+COPY . .
 
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN cp -r /app/dist/* /usr/share/nginx/html
 
 EXPOSE 80
-
