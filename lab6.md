@@ -21,7 +21,7 @@
 <h3>Скріншоти інтерфейсу</h3>
 <img src="images/lab6_1.PNG" width="600" alt="Загальний вигляд сторінки"><br>
 <img src="images/posts.PNG" width="600" alt="Список постів"><br>
-<img src="images/postsId.PNG" width="600" alt="Детальна сторінка поста">
+<img src="images/postId.PNG" width="600" alt="Детальна сторінка поста">
 <hr>
 <h2>2. Сторінка окремого екземпляра сутності (<code>/posts/:id</code> або <code>/posts/new</code>)</h2>
 <h3>Режим перегляду поста (<code>/posts/:id</code>)</h3>
@@ -36,5 +36,5 @@
   <li>Кнопка <strong>"Create"</strong> для збереження нового поста.</li>
 </ul>
 <h3> Скріншоти інтерфейсу</h3>
-<img src="images/postsId.PNG" width="600" alt="Редагування існуючого поста"><br>
+<img src="images/postId.PNG" width="600" alt="Редагування існуючого поста"><br>
 <img src="images/new.PNG" width="600" alt="Створення нового поста">
