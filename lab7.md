@@ -4,15 +4,15 @@
   <li>Додати до нього такі змінні:</li>
   <li>Реалізувати використання цих змінних у конфігурації Axios</li>
 </ul>
-<img src="images/env" width="600" alt="Налаштування змінних оточення">
+<img src="images/env.PNG" width="600" alt="Налаштування змінних оточення">
 <h2>2. Створити конфігурацію Axios:</h2>
 <ul>
   <li>Створити окремий файл (наприклад, <code>src/api/axios.ts</code>)</li>
   <li>Налаштувати базовий <code>baseURL</code>, заголовок <code>Content-Type</code>, токен авторизації</li>
   <li>Реалізувати обробку помилок через інтерцептор (наприклад, логування у консоль або показ повідомлення)</li>
 </ul>
-<img src="images/base" width="600" alt="Конфігурація baseURL і заголовків">
-<br><img src="images/interceptor" width="600" alt="Обробка помилок через інтерцептор">
+<img src="images/base.PNG" width="600" alt="Конфігурація baseURL і заголовків">
+<br><img src="images/interceptor.PNG" width="600" alt="Обробка помилок через інтерцептор">
 <h2>3. Замінити мок-функції на реальні HTTP-запити:</h2>
 <ul>
   <li>У файлі з API-функціями (<code>src/api/posts.ts</code> або аналогічному) замінити реалізацію:</li>
@@ -25,9 +25,9 @@
   </ul>
   <li>Повернення типізованих відповідей із Axios бажане</li>
 </ul>
-<img src="images/get-del" width="600" alt="GET і DELETE запити"><br>
-<img src="images/get-upd" width="600" alt="GET і UPDATE запити"><br>
-<img src="images/create" width="600" alt="POST запит для створення">
+<img src="images/get-del.PNG" width="600" alt="GET і DELETE запити"><br>
+<img src="images/get-upd.PNG" width="600" alt="GET і UPDATE запити"><br>
+<img src="images/create.PNG" width="600" alt="POST запит для створення">
 <h2>4. [Опціонально, для підвищення оцінки] Реалізувати UI для логіну:</h2>
 <ul>
   <li>Створити окрему сторінку логіну (<code>/login</code>)</li>
@@ -38,6 +38,6 @@
   <li>Після успішного логіну — редирект на <code>/posts</code></li>
   <li>У базовому варіанті допускається використання токена зі змінної оточення без UI логіну.</li>
 </ul>
-<img src="images/ui" width="600" alt="Інтерфейс логіну">
-<br><img src="images/login" width="600" alt="Форма логіну">
-<br><img src="images/redirect" width="600" alt="Редирект після логіну">
+<img src="images/ui.PNG" width="600" alt="Інтерфейс логіну">
+<br><img src="images/login.PNG" width="600" alt="Форма логіну">
+<br><img src="images/redirect.PNG" width="600" alt="Редирект після логіну">
